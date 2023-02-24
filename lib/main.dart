@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_practice/randomwords.dart';
 
 void main() {
   runApp(const MyApp());
@@ -12,11 +11,48 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        title: 'Flutter Demo',
-        theme: ThemeData.light(useMaterial3: true),
-        darkTheme: ThemeData.dark(useMaterial3: true),
-        // home: const MyHomePage(title: 'Flutter Demo Home Page'),
-        home: RandomWords());
+      title: "Flutter Material Design",
+      home: Container(
+        color: Colors.white,
+        child: Center(
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Container(
+                    color: Colors.blue,
+                    width: 100,
+                    height: 100,
+                  ),
+                  Container(
+                    color: Colors.red,
+                    width: 100,
+                    height: 100,
+                  ),
+                ],
+              ),
+              Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Container(
+                    color: Colors.green,
+                    width: 100,
+                    height: 100,
+                  ),
+                  Container(
+                    color: Colors.yellow,
+                    width: 100,
+                    height: 100,
+                  ),
+                ],
+              )
+            ],
+          ),
+        ),
+      ),
+    );
   }
 }
 
