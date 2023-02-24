@@ -2,6 +2,8 @@ import 'package:device_preview/device_preview.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
+import 'list.dart';
+
 void main() {
   return runApp(DevicePreview(
     enabled: !kReleaseMode,
@@ -24,27 +26,15 @@ class MyApp extends StatelessWidget {
       theme: ThemeData.light(),
       darkTheme: ThemeData.dark(),
       title: "Flutter Material Design",
-      home: Container(
-        color: Colors.white,
-        child: Center(
-            child: Container(
-          color: Colors.white,
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            verticalDirection: VerticalDirection.up,
-            children: const [
-              Text(
-                'Baseline',
-                style: TextStyle(color: Colors.blue, fontSize: 50),
-              ),
-              Text(
-                'Baseline2',
-                style: TextStyle(color: Colors.blue, fontSize: 25),
-              )
-            ],
-          ),
-        )),
-      ),
+      home: const Scaffold(
+          body: StableListView(
+        contentList: [
+          ListItem(title: "title1", icon: Icons.settings),
+          ListItem(title: "title2", icon: Icons.map),
+          ListItem(title: "title3", icon: Icons.room),
+          ListItem(title: "title4", icon: Icons.local_shipping)
+        ],
+      )),
     );
   }
 }
