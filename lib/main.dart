@@ -13,44 +13,25 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: "Flutter Material Design",
       home: Container(
-        color: Colors.white,
+        color: Colors.black,
         child: Center(
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Container(
-                    color: Colors.blue,
-                    width: 100,
-                    height: 100,
-                  ),
-                  Container(
-                    color: Colors.red,
-                    width: 100,
-                    height: 100,
-                  ),
-                ],
+            child: Container(
+          color: Colors.white,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            verticalDirection: VerticalDirection.up,
+            children: const [
+              Text(
+                'Baseline',
+                style: TextStyle(color: Colors.blue, fontSize: 50),
               ),
-              Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Container(
-                    color: Colors.green,
-                    width: 100,
-                    height: 100,
-                  ),
-                  Container(
-                    color: Colors.yellow,
-                    width: 100,
-                    height: 100,
-                  ),
-                ],
+              Text(
+                'Baseline2',
+                style: TextStyle(color: Colors.blue, fontSize: 25),
               )
             ],
           ),
-        ),
+        )),
       ),
     );
   }
