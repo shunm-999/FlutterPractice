@@ -28,25 +28,55 @@ class _StableListState extends State<StableListView> {
   Widget _menuItem({required String title, required IconData icon}) {
     return GestureDetector(
       child: Container(
-        padding: const EdgeInsets.all(8.0),
         decoration: const BoxDecoration(
             border: Border(bottom: BorderSide(width: 1.0, color: Colors.grey))),
-        child: Row(
-          children: [
-            Container(
-              margin: const EdgeInsets.all(10.0),
-              child: Icon(icon),
-            ),
-            Text(
-              title,
-              style: const TextStyle(color: Colors.black, fontSize: 18.0),
-            )
-          ],
+        child: ListTile(
+          leading: Icon(icon),
+          title: Text(
+            title,
+            style: const TextStyle(color: Colors.black, fontSize: 18.0),
+          ),
+          trailing: Icon(icon),
         ),
       ),
       onTap: () {
         print("onTap Called");
       },
+    );
+  }
+}
+
+class InfiniteListView extends StatelessWidget {
+  const InfiniteListView({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    final list = ["メッセージ", "メッセージ", "メッセージ", "メッセージ", "メッセージ"];
+
+    return ListView.builder(itemBuilder: (BuildContext context, int index) {
+      if (index >= list.length) {
+        list.addAll(["メッセージ", "メッセージ", "メッセージ", "メッセージ", "メッセージ"]);
+      }
+      return _messageItem(list[index]);
+    });
+  }
+
+  Widget _messageItem(String title) {
+    return Container(
+      decoration: const BoxDecoration(
+          border: Border(bottom: BorderSide(width: 1.0, color: Colors.grey))),
+      child: ListTile(
+        title: Text(
+          title,
+          style: const TextStyle(color: Colors.black, fontSize: 18.0),
+        ),
+        onTap: () {
+          print("onTap called.");
+        }, // タップ
+        onLongPress: () {
+          print("onLongTap called.");
+        }, // 長押し
+      ),
     );
   }
 }

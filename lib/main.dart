@@ -26,15 +26,11 @@ class MyApp extends StatelessWidget {
       theme: ThemeData.light(),
       darkTheme: ThemeData.dark(),
       title: "Flutter Material Design",
-      home: const Scaffold(
-          body: StableListView(
-        contentList: [
-          ListItem(title: "title1", icon: Icons.settings),
-          ListItem(title: "title2", icon: Icons.map),
-          ListItem(title: "title3", icon: Icons.room),
-          ListItem(title: "title4", icon: Icons.local_shipping)
-        ],
-      )),
+      home: Scaffold(
+          appBar: AppBar(
+            title: const Text("ListView"),
+          ),
+          body: const InfiniteListView()),
     );
   }
 }
