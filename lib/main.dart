@@ -30,7 +30,7 @@ class MyApp extends StatelessWidget {
           appBar: AppBar(
             title: const Text("ListView"),
           ),
-          body: const PhotoGridView(photoList: [
+          body: const PhotoGridBuilderView(photoList: [
             PhotoItem(fileName: "img1.jpeg"),
             PhotoItem(fileName: "img2.jpeg"),
             PhotoItem(fileName: "img3.jpeg"),
