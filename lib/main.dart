@@ -2,7 +2,7 @@ import 'package:device_preview/device_preview.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
-import 'list.dart';
+import 'gridview.dart';
 
 void main() {
   return runApp(DevicePreview(
@@ -30,7 +30,14 @@ class MyApp extends StatelessWidget {
           appBar: AppBar(
             title: const Text("ListView"),
           ),
-          body: const InfiniteListView()),
+          body: const PhotoGridView(photoList: [
+            PhotoItem(fileName: "img1.jpeg"),
+            PhotoItem(fileName: "img2.jpeg"),
+            PhotoItem(fileName: "img3.jpeg"),
+            PhotoItem(fileName: "img4.jpeg"),
+            PhotoItem(fileName: "img5.jpeg"),
+            PhotoItem(fileName: "img6.jpeg")
+          ])),
     );
   }
 }

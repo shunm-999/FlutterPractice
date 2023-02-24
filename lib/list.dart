@@ -80,3 +80,47 @@ class InfiniteListView extends StatelessWidget {
     );
   }
 }
+
+class SeparatorListView extends StatelessWidget {
+  const SeparatorListView({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    final list = ["メッセージ", "メッセージ", "メッセージ", "メッセージ", "メッセージ"];
+
+    return ListView.separated(
+        itemBuilder: (BuildContext context, int index) {
+          return _messageItem(list[index]);
+        },
+        separatorBuilder: (BuildContext context, int index) {
+          return _separatorItem();
+        },
+        itemCount: list.length);
+  }
+
+  Widget _separatorItem() {
+    return Container(
+      height: 10,
+      color: Colors.orange,
+    );
+  }
+
+  Widget _messageItem(String title) {
+    return Container(
+      decoration: const BoxDecoration(
+          border: Border(bottom: BorderSide(width: 1.0, color: Colors.grey))),
+      child: ListTile(
+        title: Text(
+          title,
+          style: const TextStyle(color: Colors.black, fontSize: 18.0),
+        ),
+        onTap: () {
+          print("onTap called.");
+        }, // タップ
+        onLongPress: () {
+          print("onLongTap called.");
+        }, // 長押し
+      ),
+    );
+  }
+}
