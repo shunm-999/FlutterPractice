@@ -1,9 +1,7 @@
 import 'package:device_preview/device_preview.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_practice/stack.dart';
-
-import 'gridview.dart';
+import 'package:flutter_practice/card.dart';
 
 void main() {
   return runApp(DevicePreview(
@@ -31,7 +29,10 @@ class MyApp extends StatelessWidget {
           appBar: AppBar(
             title: const Text("ListView"),
           ),
-          body: const StackView()),
+          body: const CardView(
+            title: "タイトルです",
+            message: "これはメッセージです",
+          )),
     );
   }
 }
