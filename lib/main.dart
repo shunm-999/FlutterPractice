@@ -1,7 +1,8 @@
 import 'package:device_preview/device_preview.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_practice/common_view/form.dart';
+
+import 'common_view/date_time_picker.dart';
 
 void main() {
   return runApp(DevicePreview(
@@ -31,9 +32,9 @@ class MyApp extends StatelessWidget {
           ),
           body: Container(
             alignment: Alignment.center,
-            child: LoginFormView(onSubmitted: (LoginSubmission submission) {
-
-            }),
+            child: DatePickerView(
+              onDatePicked: (DateTime dateTime) {},
+            ),
           ),
         ));
   }
