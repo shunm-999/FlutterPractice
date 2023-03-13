@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class ClickGood extends StatefulWidget {
@@ -30,7 +29,8 @@ class _ClickGood extends State<ClickGood> {
               child: Icon(
                 Icons.thumb_up,
                 color: widget._active ? Colors.orange[700] : Colors.grey[500],
-                size: 100.0,),
+                size: 100.0,
+              ),
             ),
           ),
           Container(

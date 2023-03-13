@@ -2,7 +2,7 @@ import 'package:device_preview/device_preview.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
-import 'interactive/click_good.dart';
+import 'common_view/textfield.dart';
 
 void main() {
   return runApp(DevicePreview(
@@ -31,11 +31,11 @@ class MyApp extends StatelessWidget {
             title: const Text("ListView"),
           ),
           body: Container(
-            alignment: Alignment.center,
-            child: ClickGood(
-              active: false,
-            ),
-          )),
+              alignment: Alignment.center,
+              child: TextFieldView(
+                value: "",
+                maxLength: 10,
+              ))),
     );
   }
 }
