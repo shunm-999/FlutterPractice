@@ -1,8 +1,7 @@
 import 'package:device_preview/device_preview.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-
-import 'common_view/textfield.dart';
+import 'package:flutter_practice/common_view/form.dart';
 
 void main() {
   return runApp(DevicePreview(
@@ -20,23 +19,23 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      useInheritedMediaQuery: true,
-      locale: DevicePreview.locale(context),
-      builder: DevicePreview.appBuilder,
-      theme: ThemeData.light(),
-      darkTheme: ThemeData.dark(),
-      title: "Flutter Material Design",
-      home: Scaffold(
+        useInheritedMediaQuery: true,
+        locale: DevicePreview.locale(context),
+        builder: DevicePreview.appBuilder,
+        theme: ThemeData.light(),
+        darkTheme: ThemeData.dark(),
+        title: "Flutter Material Design",
+        home: Scaffold(
           appBar: AppBar(
             title: const Text("ListView"),
           ),
           body: Container(
-              alignment: Alignment.center,
-              child: TextFieldView(
-                value: "",
-                maxLength: 10,
-              ))),
-    );
+            alignment: Alignment.center,
+            child: LoginFormView(onSubmitted: (LoginSubmission submission) {
+
+            }),
+          ),
+        ));
   }
 }
 
