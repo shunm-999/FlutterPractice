@@ -1,8 +1,9 @@
 import 'package:device_preview/device_preview.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-
-import 'common_view/date_time_picker.dart';
+import 'package:flutter_practice/screen/detail_screen.dart';
+import 'package:flutter_practice/screen/home_screen.dart';
+import 'package:go_router/go_router.dart';
 
 void main() {
   return runApp(DevicePreview(
@@ -13,30 +14,26 @@ void main() {
   ));
 }
 
+final _router = GoRouter(initialLocation: '/', routes: [
+  GoRoute(path: '/', builder: (context, state) => const HomeScreen(), routes: [
+    GoRoute(path: 'detail', builder: (context, state) => const DetailScreen())
+  ]),
+]);
+
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return MaterialApp.router(
         useInheritedMediaQuery: true,
         locale: DevicePreview.locale(context),
         builder: DevicePreview.appBuilder,
         theme: ThemeData.light(),
         darkTheme: ThemeData.dark(),
         title: "Flutter Material Design",
-        home: Scaffold(
-          appBar: AppBar(
-            title: const Text("ListView"),
-          ),
-          body: Container(
-            alignment: Alignment.center,
-            child: DatePickerView(
-              onDatePicked: (DateTime dateTime) {},
-            ),
-          ),
-        ));
+        routerConfig: _router);
   }
 }
 
