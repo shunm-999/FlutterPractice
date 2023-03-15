@@ -7,7 +7,9 @@ class HomeScreen extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
+
     return Scaffold(
+
       appBar: AppBar(
         title: const Text("Home"),
       ),
@@ -21,7 +23,11 @@ class HomeScreen extends StatelessWidget {
             const Text("Home"),
             TextButton(
                 onPressed: () => context.go("/detail"),
-                child: const Text("Go Detail"))
+                child: const Text("Go Detail")),
+            const Text("Cart"),
+            TextButton(
+                onPressed: () => context.go("/cart"),
+                child: const Text("Go Cart"))
           ],
         ),
       ),

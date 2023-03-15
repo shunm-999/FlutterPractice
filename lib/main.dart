@@ -1,6 +1,7 @@
 import 'package:device_preview/device_preview.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_practice/screen/cart_screen.dart';
 import 'package:flutter_practice/screen/detail_screen.dart';
 import 'package:flutter_practice/screen/home_screen.dart';
 import 'package:go_router/go_router.dart';
@@ -18,6 +19,7 @@ final _router = GoRouter(initialLocation: '/', routes: [
   GoRoute(path: '/', builder: (context, state) => const HomeScreen(), routes: [
     GoRoute(path: 'detail', builder: (context, state) => const DetailScreen())
   ]),
+  GoRoute(path: '/cart', builder: (context, state) => const CartScreen())
 ]);
 
 class MyApp extends StatelessWidget {

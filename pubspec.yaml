@@ -38,6 +38,8 @@ dependencies:
   english_words: ^4.0.0
   device_preview: ^1.1.0
   go_router: ^6.0.9
+  provider: ^6.0.0
+  melos: ^3.0.0
 
 dev_dependencies:
   flutter_test:
