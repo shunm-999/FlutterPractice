@@ -3,6 +3,7 @@ name: flutter_practice
 packages:
   - packages/**
   - view_qiita/
+  - view_shared_preference
 
 scripts:
   bootstrap: melos bootstrap

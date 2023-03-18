@@ -31,7 +31,11 @@ class HomeScreen extends StatelessWidget {
             const Text("QiitaArticle"),
             TextButton(
                 onPressed: () => context.go("/qiita_article"),
-                child: const Text("Go QiitaArticle"))
+                child: const Text("Go QiitaArticle")),
+            const Text("SharedPreference"),
+            TextButton(
+                onPressed: () => context.go("/shared_preference"),
+                child: const Text("Go SharedPreference"))
           ],
         ),
       ),

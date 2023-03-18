@@ -6,6 +6,7 @@ import 'package:flutter_practice/screen/detail_screen.dart';
 import 'package:flutter_practice/screen/home_screen.dart';
 import 'package:go_router/go_router.dart';
 import 'package:view_qiita/view/article_list_view.dart';
+import 'package:view_shared_preference/view_shared_preference.dart';
 
 void main() {
   return runApp(DevicePreview(
@@ -18,11 +19,14 @@ void main() {
 
 final _router = GoRouter(initialLocation: '/', routes: [
   GoRoute(path: '/', builder: (context, state) => const HomeScreen(), routes: [
-    GoRoute(path: 'detail', builder: (context, state) => const DetailScreen())
+    GoRoute(path: 'detail', builder: (context, state) => const DetailScreen()),
+    GoRoute(
+        path: 'shared_preference',
+        builder: (context, state) => const SharedPreferenceScreen())
   ]),
   GoRoute(path: '/cart', builder: (context, state) => const CartScreen()),
   GoRoute(
-      path: '/qiita_article', builder: (context, state) => ArticleListView())
+      path: '/qiita_article', builder: (context, state) => ArticleListView()),
 ]);
 
 class MyApp extends StatelessWidget {

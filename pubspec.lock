@@ -593,6 +593,13 @@ packages:
       relative: true
     source: path
     version: "0.0.1"
+  view_shared_preference:
+    dependency: "direct main"
+    description:
+      path: view_shared_preference
+      relative: true
+    source: path
+    version: "0.0.1"
   webview_flutter:
     dependency: transitive
     description:
