@@ -1,7 +1,7 @@
 name: flutter_practice
 
 packages:
-  - packages/*
+  - packages/**
   - view_qiita/
 
 scripts:

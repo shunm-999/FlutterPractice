@@ -27,7 +27,11 @@ class HomeScreen extends StatelessWidget {
             const Text("Cart"),
             TextButton(
                 onPressed: () => context.go("/cart"),
-                child: const Text("Go Cart"))
+                child: const Text("Go Cart")),
+            const Text("QiitaArticle"),
+            TextButton(
+                onPressed: () => context.go("/qiita_article"),
+                child: const Text("Go QiitaArticle"))
           ],
         ),
       ),

@@ -5,6 +5,7 @@ import 'package:flutter_practice/screen/cart_screen.dart';
 import 'package:flutter_practice/screen/detail_screen.dart';
 import 'package:flutter_practice/screen/home_screen.dart';
 import 'package:go_router/go_router.dart';
+import 'package:view_qiita/view/article_list_view.dart';
 
 void main() {
   return runApp(DevicePreview(
@@ -19,7 +20,9 @@ final _router = GoRouter(initialLocation: '/', routes: [
   GoRoute(path: '/', builder: (context, state) => const HomeScreen(), routes: [
     GoRoute(path: 'detail', builder: (context, state) => const DetailScreen())
   ]),
-  GoRoute(path: '/cart', builder: (context, state) => const CartScreen())
+  GoRoute(path: '/cart', builder: (context, state) => const CartScreen()),
+  GoRoute(
+      path: '/qiita_article', builder: (context, state) => ArticleListView())
 ]);
 
 class MyApp extends StatelessWidget {
