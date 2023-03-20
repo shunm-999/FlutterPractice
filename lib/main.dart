@@ -5,15 +5,19 @@ import 'package:flutter_practice/screen/cart_screen.dart';
 import 'package:flutter_practice/screen/detail_screen.dart';
 import 'package:flutter_practice/screen/home_screen.dart';
 import 'package:go_router/go_router.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:view_qiita/view/article_list_view.dart';
+import 'package:view_qiita/view/article_screen.dart';
 import 'package:view_shared_preference/view_shared_preference.dart';
 
 void main() {
-  return runApp(DevicePreview(
-    enabled: !kReleaseMode,
-    builder: (context) {
-      return const MyApp();
-    },
+  return runApp(ProviderScope(
+    child: DevicePreview(
+      enabled: !kReleaseMode,
+      builder: (context) {
+        return const MyApp();
+      },
+    ),
   ));
 }
 
@@ -26,11 +30,12 @@ final _router = GoRouter(initialLocation: '/', routes: [
   ]),
   GoRoute(path: '/cart', builder: (context, state) => const CartScreen()),
   GoRoute(
-      path: '/qiita_article', builder: (context, state) => ArticleListView()),
+      path: '/qiita_article',
+      builder: (context, state) => const ArticleScreen()),
 ]);
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  const MyApp({Key? key}) : super(key: key);
 
   // This widget is the root of your application.
   @override
@@ -47,7 +52,7 @@ class MyApp extends StatelessWidget {
 }
 
 class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
+  const MyHomePage({Key? key, required this.title}) : super(key: key);
 
   final String title;
 

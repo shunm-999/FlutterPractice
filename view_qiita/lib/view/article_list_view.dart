@@ -1,41 +1,34 @@
-import 'package:flutter/cupertino.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
-import 'package:view_qiita/viewmodel/article_list_view_model.dart';
 
+import '../data/api/entity/article.dart';
+import '../provider/viewmodel_provider.dart';
 import 'article_list.dart';
 
-class ArticleListView extends StatelessWidget {
-  final viewModel = ArticleListViewModel();
-
-  ArticleListView({super.key});
+class ArticleListView extends HookConsumerWidget {
+  const ArticleListView({Key? key}) : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    final viewModel = ref.watch(articleListViewModelProvider);
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Detail"),
+        title: const Text("Article"),
       ),
-      body: ChangeNotifierProvider(
-        create: (context) => viewModel,
-        child: Consumer<ArticleListViewModel>(
-          builder: (context, viewModel, _) {
-            return RefreshIndicator(
-                child: _buildListView(viewModel),
-                onRefresh: () => viewModel.fetchArticles());
-          },
-        ),
-      ),
+      body: RefreshIndicator(
+          child: _buildListView(viewModel.articles),
+          onRefresh: () =>
+              ref.read(articleListViewModelProvider.notifier).fetchArticles()),
     );
   }
 }
 
-Widget _buildListView(ArticleListViewModel viewModel) {
+Widget _buildListView(List<Article> articles) {
   return ListView.separated(
       padding: const EdgeInsets.symmetric(vertical: 8),
       itemBuilder: (context, index) {
-        return ArticleListTile(article: viewModel.articles[index]);
+        return ArticleListTile(article: articles[index]);
       },
       separatorBuilder: (context, index) => const Divider(),
-      itemCount: viewModel.articles.length);
+      itemCount: articles.length);
 }

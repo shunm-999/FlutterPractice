@@ -4,7 +4,8 @@ import 'package:provider/provider.dart';
 import '../provider/cart_provider.dart';
 
 class CartScreen extends StatelessWidget {
-  const CartScreen({super.key});
+  const CartScreen({Key? key}) : super(key: key);
+
 
   // This widget is the root of your application.
   @override

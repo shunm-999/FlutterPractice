@@ -10,7 +10,7 @@ class ArticleDetailWebView extends StatelessWidget {
 
   late WebViewController _controller;
 
-  ArticleDetailWebView({super.key, required this.article}) {
+  ArticleDetailWebView({Key? key,  required this.article}) : super(key: key) {
     _controller = _initState();
   }
 

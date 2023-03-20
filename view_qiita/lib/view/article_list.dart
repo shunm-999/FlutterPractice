@@ -6,7 +6,7 @@ import 'article_web_view.dart';
 class ArticleListTile extends StatelessWidget {
   final Article article;
 
-  const ArticleListTile({super.key, required this.article});
+  const ArticleListTile({Key? key, required this.article}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
