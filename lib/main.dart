@@ -6,6 +6,7 @@ import 'package:flutter_practice/screen/detail_screen.dart';
 import 'package:flutter_practice/screen/home_screen.dart';
 import 'package:go_router/go_router.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:view_map/map_screen.dart';
 import 'package:view_qiita/view/article_list_view.dart';
 import 'package:view_qiita/view/article_screen.dart';
 import 'package:view_shared_preference/view_shared_preference.dart';
@@ -32,6 +33,7 @@ final _router = GoRouter(initialLocation: '/', routes: [
   GoRoute(
       path: '/qiita_article',
       builder: (context, state) => const ArticleScreen()),
+  GoRoute(path: '/map', builder: (context, state) => MapScreen()),
 ]);
 
 class MyApp extends StatelessWidget {
