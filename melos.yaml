@@ -1,0 +1,15 @@
+name: flutter_practice
+
+packages:
+  - packages/**
+  - view_qiita/
+  - view_shared_preference/
+  - view_map
+
+scripts:
+  bootstrap: melos bootstrap
+  clean: melos clean
+  pub_get: melos exec -- pub get
+  analyze: melos exec -- flutter analyze
+  test: melos exec -- flutter test
+  build: melos exec -- flutter build
